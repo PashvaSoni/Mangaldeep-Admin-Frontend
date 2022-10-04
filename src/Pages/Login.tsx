@@ -1,14 +1,19 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
+import axios from 'axios';
 import styled from 'styled-components';
 import { Form, Input, Button } from 'antd';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-import { useCurrentTheme } from '../Context/ThemeContext'
+import { useAuth } from '../Context/AuthContext';
 import {config} from '../Constant'
 
-import axios from 'axios';
+
 
 export const Login = () => {
-    const { currentTheme,setCurrentTheme } = useCurrentTheme();
+    const navigate= useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const {User,setUser} = useAuth();
     const [form] = Form.useForm();
     const [formData,setformData] = useState({phonenumber:"",password:""});
 
@@ -16,7 +21,9 @@ export const Login = () => {
         console.log(formData);
         try{
             const response= await axios.post(config.URLS.BACKEND_URL+'users/signin',formData);
-            console.log(response);
+            console.log(response.data);
+            setUser({...User,token:response.data.data.token, userData:response.data.data.userinfo});
+            navigate(from, {replace:true});
         }
         catch(err)
         {
@@ -49,8 +56,8 @@ export const Login = () => {
                     >
                         <Input.Password placeholder='Enter Password ...' onChange={(e)=>{setformData({...formData,password:e.target.value})}}/>
                     </Form.Item>
-                    <Form.Item>
-                        <Button onClick={HandleSubmit} type="primary">Login</Button>
+                    <Form.Item style={{textAlign:"center"}}>
+                        <Button  onClick={HandleSubmit} type="primary">Login</Button>
                     </Form.Item>
                 </Form>
             </LoginFormContainer>
@@ -60,9 +67,11 @@ export const Login = () => {
 
 const LoginContainer = styled.div`
     width:100%;
+    height:100vh;
     border:1px solid red;
     display:flex;
     justify-content:center;
+    align-items:center;
     padding:12px;
 
 `;
@@ -70,6 +79,7 @@ const LoginContainer = styled.div`
 const LoginFormContainer=styled.div`
     background-color:${(prop)=>prop.theme.color.backgroundColor};
     padding:12px;
+    align-items:center;    
     border-radius:15px;
     
     @media ${(prop)=>prop.theme.device.mobile} { 
