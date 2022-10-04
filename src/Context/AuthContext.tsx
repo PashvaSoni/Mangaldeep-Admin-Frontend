@@ -7,6 +7,7 @@ type Props = {
 type AuthProps = {
     token: string,
     userData: {
+        id:string,
         phonenumber: string,
         photo?: string
     }
@@ -25,6 +26,7 @@ export function useAuth(){
 
  const AuthContext = ({children}:Props) => {
     const [User, setUser] = useState({} as AuthProps)
+    console.log(User);
     return (
         <AuthorizationContext.Provider value={{User,setUser}}>
             {children}
