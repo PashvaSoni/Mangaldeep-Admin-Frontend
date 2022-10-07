@@ -25,21 +25,28 @@ const themesMap = {
         // light theme properties goes here 
         ...BaseTheme,
         color: {
-            color1:'#F9F1F0',
-            color2:'#FADCD9',
-            color3:'#F8AFA6',
-            color4:'#F79489'
+            color1:'#b4d7fa',
+            color2:'#95c9fc',
+            color3:'#1890ff;',
+            color4:'#037bfc'
+        },
+        font:{
+            ...BaseTheme.font,
+            fontColor:"Black"
         }
     },
     dark: {
         // dark theme properties goes here 
         ...BaseTheme,
         color: {         
-            color1:'#0B0909',
-            color2:'#44444C',
-            color3:'#8C8C8C',
-            color4:'#D6D6D6',
-
+            color1:'#222324',
+            color2:'#44596e',
+            color3:'#1890ff',
+            color4:'#7dc1ff',
+        },
+        font:{
+            ...BaseTheme.font,
+            fontColor:"White"
         }
     }
 }
