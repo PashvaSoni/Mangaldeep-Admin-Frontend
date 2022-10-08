@@ -12,7 +12,7 @@ const BodyGlobalStyle = css`
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
         
-        label,h1,h2,h3,h4,span{
+        label,h1,h2,h3,h4,span,a{
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
 
@@ -20,7 +20,7 @@ const BodyGlobalStyle = css`
             background-color:transparent !important;
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
-        .ant-input-password, .ant-input-password-icon{
+        .ant-input-password, .ant-input-password-icon, .ant-input-affix-wrapper{
             background-color:transparent !important;
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
@@ -30,11 +30,17 @@ const BodyGlobalStyle = css`
         }
 
 
-        .ant-select-selector , .ant-select-arrow  {
+        .ant-select-selector , .ant-select-arrow{
             background-color:transparent !important;
             color:${(prop) => prop.theme.font.fontColor} !important;
-          }
-
+        }
+        
+        .ant-collapse-content-box{
+            background-color:${(prop) => prop.theme.color.color2};
+        }
+        .ant-collapse-header{
+            background-color:${(prop) => prop.theme.color.color3};
+        }
     }
 `;
 
