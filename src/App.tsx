@@ -5,13 +5,11 @@ import Layout from './Components/Layout';
 import PageNotFound from './Pages/PageNotFound';
 import { Login } from './Pages/Login';
 import RequireAuth from './Hooks/RequireAuth';
-import Header from './Components/Header';
 import Test from './Pages/Test';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
       <Routes>
 
         {/* Un-Protected Routes */}

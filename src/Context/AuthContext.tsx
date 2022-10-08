@@ -8,6 +8,7 @@ type AuthProps = {
     token: string,
     userData: {
         id:string,
+        name:string,
         phonenumber: string,
         photo?: string
     }

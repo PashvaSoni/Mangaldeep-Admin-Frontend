@@ -60,7 +60,6 @@ export function useCurrentTheme() {
 const ThemeContext = ({ children }: Props) => {
     const [currentTheme, setCurrentTheme] = useState('light');
     const theme = themesMap[currentTheme as keyof typeof themesMap];
-    console.log(theme);
     return (
         <ThemePreferenceContext.Provider value={{ currentTheme, setCurrentTheme }}>
             <ThemeProvider theme={theme}>
