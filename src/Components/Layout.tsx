@@ -9,7 +9,9 @@ const Layout = () => {
         <Header />
           <div style={{display:'flex', height:'90vh'}}>
             <Sidebar/>
-            <Outlet/>
+            <div style={{width:"100%"}}>
+              <Outlet/>
+            </div>
           </div>
         <Footer/>
     </>

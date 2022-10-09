@@ -124,6 +124,7 @@ const SidebarContainer = styled.div`
     .Arrow__Button{
         display:flex;
         align-items:center;
+        cursor:pointer;
     }
 
     .Submenu__Link__Container{
