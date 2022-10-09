@@ -35,6 +35,7 @@ export const Login = () => {
     return (
         <LoginContainer>
             <LoginFormContainer>
+                <h2 style={{textAlign:"center"}}>Login To Your Accout !</h2>
                 <Form
                     form={form}
                     name="Login_Form"
@@ -77,7 +78,7 @@ const LoginContainer = styled.div`
 `;
 
 const LoginFormContainer=styled.div`
-    background-color:${(prop)=>prop.theme.color.backgroundColor};
+    background-color:${(prop)=>prop.theme.color.color2};
     padding:12px;
     align-items:center;    
     border-radius:15px;

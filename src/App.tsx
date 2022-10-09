@@ -5,23 +5,55 @@ import Layout from './Components/Layout';
 import PageNotFound from './Pages/PageNotFound';
 import { Login } from './Pages/Login';
 import RequireAuth from './Hooks/RequireAuth';
-import Header from './Components/Header';
-
+import Test from './Pages/Test';
+import Home from './Pages/Home';
+import ProductLayout from './Pages/Products/ProductLayout';
+import OccasionLayout from './Pages/Occasions/OccasionsLayout';
+import OffersLayout from './Pages/Offers/OffersLayout';
+import CategoryLayout from './Pages/Categories/CategoryLayout';
 function App() {
   return (
     <div className="App">
-      <Header/>
       <Routes>
 
         {/* Un-Protected Routes */}
         <Route path='/login' element={<Login />} />
+        <Route path='/test' element={<Test />} />
 
         {/* Protected Routes */}
         <Route element={<RequireAuth />}>
           <Route path='/' element={<Layout />} >
-            <Route index element={<h1>Welcome ...</h1>} />
-            <Route path='product' element={<p>Product</p>} />
-            <Route path='home' element={<p>Home</p>} />
+            
+            <Route index element={<Home />} />
+            
+            <Route path='Offer' element={<OffersLayout />} >
+                <Route path='all' element={<p>ALL Offers</p>}/>
+                <Route path='create' element={<p>Create Offer</p>}/>
+                <Route path='update' element={<p>Update Offer</p>}/>
+                <Route path='delete' element={<p>Delete Offer</p>}/>
+            </Route>
+
+            <Route path='product' element={<ProductLayout />} >
+                <Route path='all' element={<p>ALL Product</p>}/>
+                <Route path='create' element={<p>Create Product</p>}/>
+                <Route path='update' element={<p>Update Product</p>}/>
+                <Route path='delete' element={<p>Delete Product</p>}/>
+            </Route>
+            
+            <Route path='category' element={<CategoryLayout />} >
+                <Route path='all' element={<p>ALL Categories</p>}/>
+                <Route path='create' element={<p>Create Category</p>}/>
+                <Route path='update' element={<p>Update Category</p>}/>
+                <Route path='delete' element={<p>Delete Category</p>}/>
+            </Route>
+            
+            <Route path='Occasion' element={<OccasionLayout />} >
+                <Route path='all' element={<p>ALL Occasions</p>}/>
+                <Route path='create' element={<p>Create Occasions</p>}/>
+                <Route path='update' element={<p>Update Occasions</p>}/>
+                <Route path='delete' element={<p>Delete Occasions</p>}/>
+            </Route>
+            
           </Route>
         </Route>
 
