@@ -9,6 +9,26 @@ interface IContextProps {
     setCurrentTheme: React.Dispatch<React.SetStateAction<string>>
 }
 
+export type ThemeProp ={
+    device:{
+        mobile:string,
+        tablet:string,
+        laptop:string,
+    },
+    font:{
+        fontSize:number,
+        fonstColor:string,
+        fonstStyle?:string
+    },
+    color:{
+        color1:string,
+        color2:string,
+        color3:string,
+        color4:string,
+    }
+
+}
+
 const BaseTheme = {
     //some common theme goes here
     device: {
@@ -17,7 +37,7 @@ const BaseTheme = {
         laptop: `(min-width:1025px)`,
     },
     font: {
-        size: 1
+        fontSize: 1
     }
 }
 const themesMap = {
@@ -60,6 +80,7 @@ export function useCurrentTheme() {
 const ThemeContext = ({ children }: Props) => {
     const [currentTheme, setCurrentTheme] = useState('light');
     const theme = themesMap[currentTheme as keyof typeof themesMap];
+    console.log(theme);
     return (
         <ThemePreferenceContext.Provider value={{ currentTheme, setCurrentTheme }}>
             <ThemeProvider theme={theme}>

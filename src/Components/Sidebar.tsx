@@ -105,10 +105,13 @@ export default Sidebar;
 const SidebarContainer = styled.div`
     background-color:${(prop) => prop.theme.color.color2};
     display:flex;
-    height:100%;
+    height:90%;
     width:max-content
     border:1px solid ${(prop) => prop.theme.color.color4};
     border-left:none;
+    position: absolute;
+    left:0;
+    z-index:10;
 
     .Menu__Items__Container{
         gap:0.5rem;
