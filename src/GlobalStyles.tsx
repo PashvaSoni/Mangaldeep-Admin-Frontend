@@ -13,6 +13,7 @@ const BodyGlobalStyle = css`
         
         label,h1,h2,h3,h4,span,a,div{
             color:${(prop) => prop.theme.font.fontColor} !important;
+            font-size:1rem;
         }
 
         input{
@@ -37,11 +38,11 @@ const BodyGlobalStyle = css`
         .ant-collapse-content-box{
             background-color:${(prop) => prop.theme.color.color2};
         }
-        .ant-collapse-header,  .ant-notification-notice{
+        .ant-collapse-header,  .ant-notification-notice, .ant-slider-track{
             background-color:${(prop) => prop.theme.color.color3};
         }
 
-        .ant-divider{
+        .ant-divider, .ant-slider-handle{
             background-color:${(prop) => prop.theme.font.fontColor} !important;
         }
     }

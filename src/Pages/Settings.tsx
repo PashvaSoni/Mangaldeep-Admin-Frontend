@@ -8,10 +8,13 @@ import dark from '../Assets/DarkThemeDashboardLayout.png';
 
 
 const Settings = () => {
-    const { currentTheme, setCurrentTheme } = useCurrentTheme();
+    const { currentTheme, setCurrentTheme,setTheme } = useCurrentTheme();
     const theme=useTheme() as ThemeProp;
     // const [settings,setSettings]= useState({fontSize:theme.font.fontSize,fontStyle:theme.font.fonstStyle});
-
+    const onValueChange=(val:number)=>{
+        console.log(val/100);
+        setTheme({...theme,font:{...theme.font,fontSize:val/100}});
+    }
     return (
         <Settings__Container>
             <Tabs
@@ -37,7 +40,7 @@ const Settings = () => {
                             <div className='hflex'>
                                 <div className="Font__Size" style={{width:"100%"}}>
                                     <p>Adjust your font size based on your requirnments</p>
-                                    <Slider defaultValue={theme.font.fontSize} max={2} onChange={(value)=>{console.log(theme.font.fontSize);theme.font.fontSize=value}} /> 
+                                    <Slider defaultValue={theme.font.fontSize} min={100} max={200} onChange={onValueChange} tooltip={{formatter:(val=100)=>`Font Size : ${val-99}`}} /> 
                                 </div>
                                 <div className="Font__Style" style={{width:"100%"}}>
                                     ksbdjfbsjdb

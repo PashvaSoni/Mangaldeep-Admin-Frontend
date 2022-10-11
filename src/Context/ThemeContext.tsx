@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GloabalStyles from '../GlobalStyles';
 type Props = {
@@ -6,7 +6,8 @@ type Props = {
 };
 interface IContextProps {
     currentTheme: string;
-    setCurrentTheme: React.Dispatch<React.SetStateAction<string>>
+    setCurrentTheme: React.Dispatch<React.SetStateAction<string>>;
+    setTheme: React.Dispatch<React.SetStateAction<ThemeProp>>
 }
 
 export type ThemeProp ={
@@ -17,8 +18,8 @@ export type ThemeProp ={
     },
     font:{
         fontSize:number,
-        fonstColor:string,
-        fonstStyle?:string
+        fontColor:string,
+        fontStyle?:string
     },
     color:{
         color1:string,
@@ -79,10 +80,14 @@ export function useCurrentTheme() {
 }
 const ThemeContext = ({ children }: Props) => {
     const [currentTheme, setCurrentTheme] = useState('light');
-    const theme = themesMap[currentTheme as keyof typeof themesMap];
-    console.log(theme);
+    const [theme,setTheme]= useState(themesMap[currentTheme as keyof typeof themesMap])
+    // const theme = themesMap[currentTheme as keyof typeof themesMap];
+    // console.log(theme);
+    useEffect(()=>{
+        setTheme({...theme,font:{...themesMap[currentTheme as keyof typeof themesMap].font},color:{...themesMap[currentTheme as keyof typeof themesMap].color}})
+    },[currentTheme]);
     return (
-        <ThemePreferenceContext.Provider value={{ currentTheme, setCurrentTheme }}>
+        <ThemePreferenceContext.Provider value={{ currentTheme, setCurrentTheme,setTheme }}>
             <ThemeProvider theme={theme}>
                 <GloabalStyles />
                 {children}
