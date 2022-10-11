@@ -1,9 +1,11 @@
-import React from 'react'
-import { Input, Select, Button, Switch, Progress, Space,Checkbox } from 'antd'
+import React,{useEffect} from 'react'
+import { Input, Select, Button, Switch, Progress, Space,Checkbox, Slider } from 'antd'
 import styled from 'styled-components'
 import { useCurrentTheme } from '../Context/ThemeContext'
+import { OpenNotification } from '../HelperFunction'
 const Test = () => {
-    return (
+
+    return ( 
         <DivContainer>
             <Space direction='vertical'>
                 <div style={{display:'flex'}}>
@@ -38,6 +40,7 @@ const Test = () => {
                 <Progress percent={100} />
                 <Progress percent={50} showInfo={false} />
                 <Checkbox >Checkbox</Checkbox>
+                <Slider defaultValue={30}/>
             </Space>
         </DivContainer>
     )
@@ -47,7 +50,7 @@ export default Test;
 
 const DivContainer=styled.div`
     .Wbox1{
-        background-color:${(prop)=>{console.log("hello",prop.theme.color.color1);return prop.theme.color.color1}};
+        background-color:${(prop)=>{return prop.theme.color.color1}};
     }
     .Wbox2{
         background-color:${(prop)=>prop.theme.color.color2};

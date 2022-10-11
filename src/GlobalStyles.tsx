@@ -1,10 +1,9 @@
 import { createGlobalStyle, css } from "styled-components";
-
+import {ThemeProp} from './Context/ThemeContext'
 // As our baseTheme is nested object of styles we need to use css and than import whole thing to GlobalStyles... Ref : https://github.com/styled-components/styled-components/issues/3391#issuecomment-1220370337
 const BodyGlobalStyle = css`
     body{
         font-family:consolas;
-        font-size:${(prop) => prop.theme.font}rem;
         background-color:${(prop) => prop.theme.color.color1};
         color:${(prop) => prop.theme.font.fontColor} !important;
 
@@ -12,8 +11,9 @@ const BodyGlobalStyle = css`
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
         
-        label,h1,h2,h3,h4,span,a{
+        label,h1,h2,h3,h4,span,a,div{
             color:${(prop) => prop.theme.font.fontColor} !important;
+            font-size:1rem;
         }
 
         input{
@@ -30,7 +30,7 @@ const BodyGlobalStyle = css`
         }
 
 
-        .ant-select-selector , .ant-select-arrow{
+        .ant-select-selector , .ant-select-arrow, .ant-notification {
             background-color:transparent !important;
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
@@ -38,15 +38,19 @@ const BodyGlobalStyle = css`
         .ant-collapse-content-box{
             background-color:${(prop) => prop.theme.color.color2};
         }
-        .ant-collapse-header{
+        .ant-collapse-header,  .ant-notification-notice, .ant-slider-track{
             background-color:${(prop) => prop.theme.color.color3};
+        }
+
+        .ant-divider, .ant-slider-handle{
+            background-color:${(prop) => prop.theme.font.fontColor} !important;
         }
     }
 `;
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle<{theme: ThemeProp}>`
     html{
-        font-size:16px;
+        font-size:${(prop)=>prop.theme.font.fontSize}rem;
     }
     ${BodyGlobalStyle}
     `;

@@ -11,6 +11,7 @@ import ProductLayout from './Pages/Products/ProductLayout';
 import OccasionLayout from './Pages/Occasions/OccasionsLayout';
 import OffersLayout from './Pages/Offers/OffersLayout';
 import CategoryLayout from './Pages/Categories/CategoryLayout';
+import Settings from './Pages/Settings';
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
           <Route path='/' element={<Layout />} >
             
             <Route index element={<Home />} />
+            <Route path="settings" element={<Settings />} />
             
             <Route path='Offer' element={<OffersLayout />} >
                 <Route path='all' element={<p>ALL Offers</p>}/>

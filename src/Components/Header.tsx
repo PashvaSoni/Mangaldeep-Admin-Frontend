@@ -40,7 +40,7 @@ const Header = () => {
         <span>Welcome {Capitalize(User.userData.name) || 'User'}</span>
       </div>
         <div className='Link__Container' style={{display:`${MenuVisible?'flex':'none'}`}}>
-          <Switch onChange={onThemeChange} checkedChildren="Light" unCheckedChildren="Dark" defaultChecked />
+          <Switch onChange={onThemeChange} checked={currentTheme==='light'?true:false} checkedChildren="Light" unCheckedChildren="Dark" defaultChecked />
           <span className='Container__Item' onClick={onLogOut}>Logout</span>
           <span className='Container__Item'>Settings</span>
         </div>

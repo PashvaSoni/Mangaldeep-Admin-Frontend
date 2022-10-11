@@ -1,9 +1,15 @@
 import React from 'react'
-
+import styled from 'styled-components'
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <Footer__Container>
+      Footer
+    </Footer__Container>
   )
 }
 
-export default Footer
+export default Footer;
+
+const Footer__Container=styled.div`
+  background-color:${(prop)=>prop.theme.color.color3};
+`;
