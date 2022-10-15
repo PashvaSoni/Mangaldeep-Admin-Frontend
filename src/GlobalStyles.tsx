@@ -3,7 +3,7 @@ import {ThemeProp} from './Context/ThemeContext'
 // As our baseTheme is nested object of styles we need to use css and than import whole thing to GlobalStyles... Ref : https://github.com/styled-components/styled-components/issues/3391#issuecomment-1220370337
 const BodyGlobalStyle = css`
     body{
-        font-family:consolas;
+        font-family:${(prop)=>prop.theme.font.fontStyle}, consolas, serif;
         background-color:${(prop) => prop.theme.color.color1};
         color:${(prop) => prop.theme.font.fontColor} !important;
 
