@@ -38,7 +38,7 @@ const Header = () => {
 
   return (
     <HeaderContainer >
-        <div className='Logo Container__Item'>MangalDeep</div>
+        <div className='Logo Container__Item'  onClick={()=>navigate('/')}>MangalDeep</div>
         <div className='User__Info'>
         <span>Welcome {Capitalize(User.userData.name) || 'User'}</span>
       </div>

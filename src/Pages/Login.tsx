@@ -73,13 +73,13 @@ const LoginContainer = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:12px;
+    padding:1rem;
 
 `;
 
 const LoginFormContainer=styled.div`
     background-color:${(prop)=>prop.theme.color.color2};
-    padding:12px;
+    padding:0.5rem;
     align-items:center;    
     border-radius:15px;
     
