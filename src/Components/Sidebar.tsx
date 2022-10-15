@@ -77,8 +77,6 @@ const Sidebar = () => {
     }
     ,[val]);
 
-    console.log(val)
-
     return (
         <SidebarContainer>
             <div className='Menu__Items__Container' style={{ display: `${BarVisisble ? 'flex' : 'none'}` }}>

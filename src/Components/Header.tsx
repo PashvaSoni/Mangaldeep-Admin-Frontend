@@ -22,9 +22,12 @@ const Header = () => {
 
   const onLogOut = async () => {
     try {
-      const respone = await axios.post('http://localhost:3000/users/logout', {}, { withCredentials: true })
-      console.log(respone.data)
+      // const respone = await axios.post('http://localhost:3000/users/logout', {}, { withCredentials: true })
+      // console.log(respone.data)
+      localStorage.setItem('token','');
+      localStorage.setItem('userinfo','');
       setUser({ token: '', userData: { name: '', phonenumber: '', id: '' } })
+      
     }
     catch (err) {
       console.error(err)

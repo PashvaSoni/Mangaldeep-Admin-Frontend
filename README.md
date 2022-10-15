@@ -1,12 +1,11 @@
-Pages   :
+1st Priority :
+    1) RTQ Query : https://redux.js.org/tutorials/essentials/part-7-rtk-query-basics#defining-an-api-slice
+                 : https://medium.com/nmc-techblog/rtk-query-best-practices-e0296d1679e6
     
-    UnProtected Routes
-    1) Login Page
 
-    Protected Routes
-    1) Register Page
-    2) Home
-    3) Products
-    4) Category 
-    5) Offer
+2nd Priority :
+
+3rd Priority :
+
+
     
