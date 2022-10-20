@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'antd/dist/antd.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Provider } from 'react-redux';
 
 import ThemeContext from './Context/ThemeContext';
-import  AuthContext  from './Context/AuthContext';
+import AuthContext from './Context/AuthContext';
+import { store } from './store';
 
 import App from './App';
 import SomeWentWrong from './Pages/SomeWentWrong';
@@ -15,15 +17,17 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <AuthContext> 
-      <ThemeContext>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/*' element={<App />} errorElement={<SomeWentWrong />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeContext>
-    </AuthContext>
+    <Provider store={store}>
+      <AuthContext>
+        <ThemeContext>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/*' element={<App />} errorElement={<SomeWentWrong />} />
+            </Routes>
+          </BrowserRouter>
+        </ThemeContext>
+      </AuthContext>
+    </Provider>
   </React.StrictMode>
 );
 

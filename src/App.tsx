@@ -12,6 +12,7 @@ import OccasionLayout from './Pages/Occasions/OccasionsLayout';
 import OffersLayout from './Pages/Offers/OffersLayout';
 import CategoryLayout from './Pages/Categories/CategoryLayout';
 import Settings from './Pages/Settings';
+import CategoryListing from './Pages/Categories/CategoryListing';
 function App() {
   return (
     <div className="App">
@@ -43,7 +44,7 @@ function App() {
             </Route>
             
             <Route path='category' element={<CategoryLayout />} >
-                <Route path='all' element={<p>ALL Categories</p>}/>
+                <Route path='all' element={< CategoryListing/>}/>
                 <Route path='create' element={<p>Create Category</p>}/>
                 <Route path='update' element={<p>Update Category</p>}/>
                 <Route path='delete' element={<p>Delete Category</p>}/>
