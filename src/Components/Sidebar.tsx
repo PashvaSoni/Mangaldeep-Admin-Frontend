@@ -28,18 +28,18 @@ const menu = [
         title: 'Categories',
         submenu: [
             { name: 'All Categories', path: 'category/all' },
-            { name: 'Create Category', path: 'category/create' },
-            { name: 'Update Category', path: 'category/update' },
-            { name: 'Delete Category', path: 'category/delete' }
         ]
     },
     {
         title: 'Occasions',
         submenu: [
             { name: 'All Occasions', path: 'occasion/all' },
-            { name: 'Create Occasion', path: 'occasion/create' },
-            { name: 'Update Occasion', path: 'occasion/update' },
-            { name: 'Delete Occasion', path: 'occasion/delete' }
+        ]
+    },
+    {
+        title: 'Class',
+        submenu: [
+            { name: 'All Class', path: 'class/all' },
         ]
     },
     { title: 'RolesPermission', submenu: [{ name: 'My Roles and Permissions', path: '/myroles' }] }
@@ -55,25 +55,15 @@ const Sidebar = () => {
     }
 
     useEffect(()=>{
-
-            if (val.length===0)
-            {
-                SetResult([...menu]);
-            }
-            else
-            {
-                let finalArray= menu.filter((item)=>{
-                    let t=item.submenu.filter((i)=>{
-                        return i.name.includes(val)
-                    })
-                    item.submenu=t; 
-                    return item;
-                })
-                SetResult([...finalArray]);
-            }
-            // console.log(finalArray);
-            // SetResult(finalArray);
-
+        if(val===''){
+            SetResult(menu);
+            return;
+        }
+        let finalResult = Result.map(({submenu,title})=>{
+            let tsub=submenu.filter((ti)=>ti.name.toLowerCase().includes(val.toLowerCase()));
+            return {submenu:tsub,title}
+        })
+        SetResult(finalResult);
     }
     ,[val]);
 

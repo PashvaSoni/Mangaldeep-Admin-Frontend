@@ -6,14 +6,15 @@ const BodyGlobalStyle = css`
         font-family:${(prop) => prop.theme.font.fontStyle}, consolas, serif;
         background-color:${(prop) => prop.theme.color.color1};
         color:${(prop) => prop.theme.font.fontColor} !important;
-
+        * :not(h1,h2,h3,h4){
+            font-size:1rem !important;
+        }
         input::placeholder, select::placeholder, textarea::placeholder {
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
         
         label,h1,h2,h3,h4,span,a,div{
             color:${(prop) => prop.theme.font.fontColor} !important;
-            font-size:1rem;
         }
 
         input{
@@ -35,7 +36,7 @@ const BodyGlobalStyle = css`
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
         
-        .ant-collapse-content-box, .ant-pagination-item{
+        .ant-collapse-content-box, .ant-pagination-item, .ant-popover-inner{
             background-color:${(prop) => prop.theme.color.color2} !important;
         }
         .ant-table{
@@ -48,6 +49,11 @@ const BodyGlobalStyle = css`
                 background-color:${(prop) => prop.theme.color.color2} !important;
             }
         }
+        
+        .ant-table-cell-fix-left, .ant-table-cell-fix-right{
+            background-color:${(prop) => prop.theme.color.color1};
+        }
+
         .ant-collapse-header,  .ant-notification-notice, .ant-slider-track{
             background-color:${(prop) => prop.theme.color.color3} !important;
         } 

@@ -12,7 +12,7 @@ export const apiSlice = createApi({
             return Headers
         }
     }),
-    tagTypes:['Category'],
+    tagTypes:['Category','Occasion','Class'],
     keepUnusedDataFor:90,
     endpoints: builder =>({})
 })

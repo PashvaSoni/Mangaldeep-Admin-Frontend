@@ -13,6 +13,9 @@ import OffersLayout from './Pages/Offers/OffersLayout';
 import CategoryLayout from './Pages/Categories/CategoryLayout';
 import Settings from './Pages/Settings';
 import CategoryListing from './Pages/Categories/CategoryListing';
+import OccasionListing from './Pages/Occasions/OccasionListing';
+import ClassLayout from './Pages/Class/ClassLayout';
+import ClassListing from './Pages/Class/ClassListing';
 function App() {
   return (
     <div className="App">
@@ -51,7 +54,14 @@ function App() {
             </Route>
             
             <Route path='Occasion' element={<OccasionLayout />} >
-                <Route path='all' element={<p>ALL Occasions</p>}/>
+                <Route path='all' element={<OccasionListing />}/>
+                <Route path='create' element={<p>Create Occasions</p>}/>
+                <Route path='update' element={<p>Update Occasions</p>}/>
+                <Route path='delete' element={<p>Delete Occasions</p>}/>
+            </Route>
+
+            <Route path='Class' element={<ClassLayout />} >
+                <Route path='all' element={<ClassListing />}/>
                 <Route path='create' element={<p>Create Occasions</p>}/>
                 <Route path='update' element={<p>Update Occasions</p>}/>
                 <Route path='delete' element={<p>Delete Occasions</p>}/>

@@ -61,6 +61,7 @@ export default Header;
 
 const HeaderContainer = styled.div`
   width:100%;
+  height:4rem;
   display:flex;
   gap:0.5rem;
   align-items:center;
@@ -70,7 +71,7 @@ const HeaderContainer = styled.div`
   padding:0rem 1rem;
 
   .Logo{
-    font-size:2rem;
+    font-size:2rem !important;
   }
 
 
@@ -102,6 +103,7 @@ const HeaderContainer = styled.div`
 
 
   @media ${(prop) => prop.theme.device.mobile} { 
+    height:max-content;
     flex-direction:column;
     .Menu__Icon{
       display:block;

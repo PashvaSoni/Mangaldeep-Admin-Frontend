@@ -3,12 +3,12 @@ import { Button, Form, Input, Popconfirm, Spin, Table } from 'antd'
 import styled from 'styled-components';
 import { FaInfoCircle } from 'react-icons/fa'
 
-import { useDeleteCategoryMutation, useGetAllCategoriesQuery, useUpdateCategoryMutation } from './CategorySlice'
+import { useDeleteOccasionMutation, useGetAllOccasionsQuery, useUpdateOccasionMutation } from './occasionsSlice'
 
 import Loading from '../../Components/Loading';
 import { config } from '../../Constant';
 import { FixedType } from 'rc-table/lib/interface';
-import CreateCategory from './CreateCategory';
+import CreateOccasion from './CreateOccasion';
 
 interface Item {
     _id: string;
@@ -30,12 +30,12 @@ interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
 
 
 
-const CategoryListing = () => {
+const OccasionListing = () => {
 
     const [editingKey, setEditingKey] = useState('');
-    const [UseUpdateCategory] = useUpdateCategoryMutation();
-    const [UseDeleteCategory] = useDeleteCategoryMutation();
-    const { data, isLoading, isFetching, isError, isSuccess, error } = useGetAllCategoriesQuery({});
+    const [UseUpdateOccasion] = useUpdateOccasionMutation();
+    const [UseDeleteOccasion] = useDeleteOccasionMutation();
+    const { data, isLoading, isFetching, isError, isSuccess, error } = useGetAllOccasionsQuery({});
     const [form] = Form.useForm();
 
     const isEditing = (records: Item) => {
@@ -48,15 +48,15 @@ const CategoryListing = () => {
         setEditingKey(records._id)
     }
 
-    const onDelete = (record:Item) => {
+    const onDelete = (record: Item) => {
         console.log(record);
-        UseDeleteCategory(record);
+        UseDeleteOccasion(record);
     }
 
     const onSave = async () => {
         try {
             const row = await form.validateFields();
-            const responseD = await UseUpdateCategory({ _id: editingKey, name: row.name }).unwrap();
+            const responseD = await UseUpdateOccasion({ _id: editingKey, name: row.name }).unwrap();
             console.log(responseD);
             setEditingKey('');
         }
@@ -71,7 +71,7 @@ const CategoryListing = () => {
 
     const columns = [
         {
-            title: "Category Name",
+            title: "Occasion Name",
             dataIndex: "name",
             editable: true,
         },
@@ -101,14 +101,14 @@ const CategoryListing = () => {
                 const editable = isEditing(records);
                 return editable ?
                     (<div className='hflex'>
-                        <Popconfirm icon={<FaInfoCircle className='icon' />} onConfirm={() => onSave()} cancelButtonProps={{type:'primary'}} okText="Update" placement="topRight" title={`This will update the category ${records.name} !`}>
+                        <Popconfirm icon={<FaInfoCircle className='icon' />} onConfirm={() => onSave()} cancelButtonProps={{ type: 'primary' }} okText="Update" placement="topRight" title={`This will update the Occasion ${records.name} !`}>
                             <Button type='primary'>Save</Button>
                         </Popconfirm>
                         <Button type='primary' onClick={() => onCancel()} >Cancel</Button>
                     </div>)
                     : (<div className='hflex'>
                         <Button type='primary' onClick={() => onUpdate(records)} >Update</Button>
-                        <Popconfirm  onConfirm={() => onDelete(records)} placement="topRight" cancelButtonProps={{type:'primary'}} okText="Delete" title={`This will permanently delete the category ${records.name} !`}>
+                        <Popconfirm onConfirm={() => onDelete(records)} placement="topRight" cancelButtonProps={{ type: 'primary' }} okText="Delete" title={`This will permanently delete the Occasion ${records.name} !`}>
                             <Button type='primary'>Delete</Button>
                         </Popconfirm>
                     </div>);
@@ -155,7 +155,7 @@ const CategoryListing = () => {
                             },
                         ]}
                     >
-                        <Input placeholder='Category Name ...' showCount maxLength={50} minLength={3} />
+                        <Input placeholder='Occasion Name ...' showCount maxLength={50} minLength={3} />
                     </Form.Item>)
                     : (
                         children
@@ -169,7 +169,7 @@ const CategoryListing = () => {
 
 
     let content;
-    if (isLoading || isFetching ) {
+    if (isLoading || isFetching) {
         content = <Spin />;
     }
     else if (isSuccess) {
@@ -194,18 +194,18 @@ const CategoryListing = () => {
     }
 
     return (<>
-        <CreateCategory />
-        <Category_List_Container>
-            <Category_List>
+        <CreateOccasion />
+        <Occasion_List_Container>
+            <Occasion_List>
                 {content}
-            </Category_List>
-        </Category_List_Container>
+            </Occasion_List>
+        </Occasion_List_Container>
     </>)
 }
 
-export default CategoryListing;
+export default OccasionListing;
 
-const Category_List_Container = styled.div`
+const Occasion_List_Container = styled.div`
     display:flex;
     justify-content:center;
     width:100%;
@@ -239,7 +239,7 @@ const Category_List_Container = styled.div`
     }
 `;
 
-const Category_List = styled.div`
+const Occasion_List = styled.div`
     display:flex;
     margin:auto auto;
     justify-content:center;

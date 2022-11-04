@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const CategoryLayout = () => {
   return (
     <Category__Layout__Container>
+        <h1 style={{textAlign:"center"}}>Category Listing</h1>
         <Outlet/>
     </Category__Layout__Container>
   )

@@ -50,7 +50,7 @@ const themesMap = {
         color: {
             color1: '#b4d7fa',
             color2: '#95c9fc',
-            color3: '#1890ff;',
+            color3: '#1890ff',
             color4: '#037bfc'
         },
         font: {
