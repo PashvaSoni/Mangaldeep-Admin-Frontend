@@ -16,6 +16,7 @@ import CategoryListing from './Pages/Categories/CategoryListing';
 import OccasionListing from './Pages/Occasions/OccasionListing';
 import ClassLayout from './Pages/Class/ClassLayout';
 import ClassListing from './Pages/Class/ClassListing';
+import OfferForm from './Pages/Offers/OfferForm';
 function App() {
   return (
     <div className="App">
@@ -33,7 +34,7 @@ function App() {
             <Route path="settings" element={<Settings />} />
             
             <Route path='Offer' element={<OffersLayout />} >
-                <Route path='all' element={<p>ALL Offers</p>}/>
+                <Route path='all' element={<OfferForm />}/>
                 <Route path='create' element={<p>Create Offer</p>}/>
                 <Route path='update' element={<p>Update Offer</p>}/>
                 <Route path='delete' element={<p>Delete Offer</p>}/>

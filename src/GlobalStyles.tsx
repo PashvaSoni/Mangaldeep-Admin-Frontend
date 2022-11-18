@@ -21,7 +21,7 @@ const BodyGlobalStyle = css`
             background-color:transparent !important;
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
-        .ant-input-password, .ant-input-password-icon, .ant-input-affix-wrapper{
+        .ant-input-password, .ant-input-password-icon, .ant-input-affix-wrapper, .ant-picker{
             background-color:transparent !important;
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
@@ -36,7 +36,7 @@ const BodyGlobalStyle = css`
             color:${(prop) => prop.theme.font.fontColor} !important;
         }
         
-        .ant-collapse-content-box, .ant-pagination-item, .ant-popover-inner{
+        .ant-collapse-content-box, .ant-pagination-item, .ant-picker-panel-container, .ant-tooltip-inner{
             background-color:${(prop) => prop.theme.color.color2} !important;
         }
         .ant-table{
@@ -54,15 +54,18 @@ const BodyGlobalStyle = css`
             background-color:${(prop) => prop.theme.color.color1};
         }
 
-        .ant-collapse-header,  .ant-notification-notice, .ant-slider-track{
+        .ant-collapse-header,  .ant-notification-notice, .ant-slider-track, .ant-btn-primary{
             background-color:${(prop) => prop.theme.color.color3} !important;
         } 
 
-        .ant-pagination-item-link{
+        .ant-pagination-item-link, .ant-picker-time-panel-cell-inner{
             background-color:${(prop) => prop.theme.color.color3} !important;
         } 
         .ant-divider, .ant-slider-handle{
             background-color:${(prop) => prop.theme.font.fontColor} !important;
+        }
+        .ant-form-item-explain-error{
+            color:red !important;
         }
     }
 `;
